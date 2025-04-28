@@ -1,0 +1,17 @@
+streamlit
+streamlit_lottie
+pandas
+numpy
+plotly
+bs4
+plotly.graph_objects
+scipy
+scikit-learn
+matplotlib
+seaborn
+python-dotenv
+bcrypt
+requests
+email-validator
+google
+os
