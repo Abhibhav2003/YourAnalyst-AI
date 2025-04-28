@@ -18,6 +18,8 @@ response = client.models.generate_content(
     system_instruction = instruction),
     contents = prompt
 )
+
+st.markdown("### Statista : An AI-powered BOT for resolving your Data related queries")
 left, right = st.columns(2)
 
 content_placeholder = st.empty()

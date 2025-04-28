@@ -307,13 +307,13 @@ Analyse = st.Page(
 Visualize = st.Page(
     "Pages/3_Visualize.py", title="Visualize"
 )
-AutoAnalysis = st.Page(
-    "Pages/4_AutoAnalysis.py",title = "Queries"
+Queries = st.Page(
+    "Pages/4_Queries.py",title = "Queries"
 )
 if st.session_state.logged_in:
     pg = st.navigation(
         {
-            "Pages": [Home, Upload, Analyse, Visualize,AutoAnalysis]
+            "Pages": [Home, Upload, Analyse, Visualize,Queries]
         }
     )
 else:
