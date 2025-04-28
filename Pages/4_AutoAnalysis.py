@@ -4,7 +4,8 @@ from google import genai
 from google.genai import types
 from SystemInstructions.instruct import instruction
 
-client = genai.Client(api_key = ["GOOGLE_GEMINI_KEY"])
+key = st.secrets["GOOGLE_GEMINI_KEY"]
+client = genai.Client(api_key = key)
 user_prompt = st.text_input("Enter Your Query")
 prompt = user_prompt
 
