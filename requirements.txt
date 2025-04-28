@@ -4,7 +4,7 @@ pandas
 numpy
 plotly
 bs4
-plotly.graph_objects
+plotly
 scipy
 scikit-learn
 matplotlib
