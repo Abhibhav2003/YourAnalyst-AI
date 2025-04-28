@@ -8,7 +8,7 @@ headers = {
    "key" : st.secrets["GOOGLE_GEMINI_KEY"]
 }
 
-client = genai.Client(api_key = headers.key)
+client = genai.Client(api_key = headers["key"])
 user_prompt = st.text_input("Enter Your Query")
 prompt = user_prompt
 
