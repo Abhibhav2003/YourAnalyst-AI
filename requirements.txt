@@ -13,5 +13,4 @@ python-dotenv
 bcrypt
 requests
 email-validator
-google
-os
+google-genai
