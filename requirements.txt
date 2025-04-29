@@ -1,5 +1,6 @@
 streamlit
 streamlit_lottie
+openpyxl
 pandas
 numpy
 plotly
