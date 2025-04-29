@@ -24,27 +24,60 @@ def Extract(URL, HEADERS={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x6
         st.error("Failed to fetch webpage content")
         return None
 
+# def WebScrape(url):
+#     result = []
+#     dicti = {}
+#     m = 1
+#     list_of_trs = Extract(url)
+#     if list_of_trs:
+#         for k in list_of_trs:
+#             for i in k:
+#                 data = [j.text.strip() for j in i.find_all("td")]
+#                 if data:
+#                     result.append(np.array(data))
+#             index = "table" + str(m)
+#             dicti[index] = result
+#             result = []
+#             m += 1
+#     return dicti
+
+# def GetDfs(result):
+#     dict_dfs = {}
+#     for k in result:
+#         df = pd.DataFrame(result[k])
+#         dict_dfs[k] = df
+#     return dict_dfs
+# Modified WebScrape function
 def WebScrape(url):
-    result = []
-    dicti = {}
+    result = {}
     m = 1
     list_of_trs = Extract(url)
     if list_of_trs:
         for k in list_of_trs:
+            headers = []
+            rows = []
             for i in k:
-                data = [j.text.strip() for j in i.find_all("td")]
-                if data:
-                    result.append(np.array(data))
+                ths = [th.text.strip() for th in i.find_all("th")]
+                if ths:
+                    headers = ths  # Take the header row
+                else:
+                    data = [td.text.strip() for td in i.find_all("td")]
+                    if data:
+                        rows.append(data)
             index = "table" + str(m)
-            dicti[index] = result
-            result = []
+            result[index] = (headers, rows)
             m += 1
-    return dicti
+    return result
 
+# Modified GetDfs function
 def GetDfs(result):
     dict_dfs = {}
     for k in result:
-        df = pd.DataFrame(result[k])
+        headers, rows = result[k]
+        if headers:  # If headers are found, use them
+            df = pd.DataFrame(rows, columns=headers)
+        else:  # Else fallback to default
+            df = pd.DataFrame(rows)
         dict_dfs[k] = df
     return dict_dfs
 

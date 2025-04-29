@@ -308,7 +308,7 @@ Visualize = st.Page(
     "Pages/3_Visualize.py", title="Visualize"
 )
 Queries = st.Page(
-    "Pages/4_Queries.py",title = "Queries"
+    "Pages/4_AutoAnalysis.py",title = "Queries"
 )
 if st.session_state.logged_in:
     pg = st.navigation(
