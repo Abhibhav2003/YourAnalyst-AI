@@ -127,7 +127,7 @@ def forgot_password():
     col1, col2 = st.columns([1, 2])
     
     with col1:
-        st.title("Reset Password 🔑")
+        st.title("Reset Password")
         st.markdown("""
         <style>
         .stTitle {
@@ -230,7 +230,7 @@ def login():
     col1, col2 = st.columns([1, 2])
     
     with col1:
-        st.title("Welcome Back! 👋")
+        st.title("Welcome Back")
         
     with col2:
         with st.container(key="LoginForm"):
