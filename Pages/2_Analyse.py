@@ -42,7 +42,7 @@ else:
 
 df = st.session_state.get("df")
 if df is not None:
-    st.write("## Uploaded Data / Extracted Data")
+    st.write("### Data")
     st.dataframe(df)
 else:
     st.error("Data not loaded.")
@@ -119,20 +119,25 @@ def ResetIndex():
 
 def ChangeTypeCol(col_name, change):
     save_state()
+    
     if change == 'str':
         df[col_name] = df[col_name].astype(str)
+        st.success("Changed Successfully!")
 
     elif change == 'int':
         try:
-            df[col_name] = df[col_name].apply(pd.to_numeric)
-        except ValueError:
-            st.error("Conversion to integer failed. Check for non-numeric values.")
+            df[col_name] = pd.to_numeric(df[col_name], errors='coerce')
+            df[col_name] = df[col_name].fillna(0).astype(int)
             
+        except Exception as e:
+            st.error(f"Conversion to integer failed. Check for non-numeric values. Details: {e}")
+
     elif change == 'float':
         try:
-            df[col_name] = df[col_name].astype(float)
-        except ValueError:
-            st.error("Conversion to float failed. Check for non-numeric values.")
+            df[col_name] = pd.to_numeric(df[col_name], errors='raise').astype(float)
+            st.success("Changed Successfully!")
+        except Exception as e:
+            st.error(f"Conversion to float failed. Check for non-numeric values. Details: {e}")
 
 # Analysis and statistics
 def mean_df(col):
@@ -328,7 +333,7 @@ if df is not None:
     with st.container(key="Data_Cleaning"):
         left_col, mid_col, right_col, more = st.columns([1, 1, 1, 1])
         with left_col:
-            st.write("## Data Cleaning")
+            st.write("### Data Cleaning")
         with mid_col:
             st_lottie(anim, height=60, key="cleaning")
 
@@ -401,7 +406,7 @@ if df is not None:
             undo_last_action()
 
         # Display the updated DataFrame after cleaning operations
-        st.write("## Updated Data")
+        st.write("### Updated Data")
         updated_data = st.session_state.df
         st.write(st.session_state.df)  # Display the DataFrame from session state after possible undo
 

@@ -85,7 +85,7 @@ if 'df' in st.session_state:
 
         st.divider()
 
-        st.subheader("Your Dashboard (Remove or Reorder Charts)")
+        st.subheader("Your Dashboard")
 
         num_charts = len(st.session_state.charts)
         if num_charts > 0:
