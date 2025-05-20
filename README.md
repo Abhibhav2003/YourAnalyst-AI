@@ -10,15 +10,15 @@ YourAnalyst is a powerful and interactive data analysis web application built us
 
 ## Features
 
-🚀 **Home Page**
+**Home Page**
 * A welcoming animated interface with a typing effect displaying engaging messages.
 * Lottie animations for enhanced UI/UX experience.
 
-📂 **Upload Section**
+**Upload Section**
 * Users can upload CSV, XLSX, and TXT files.
 * The uploaded file is stored in the session state for further processing.
 
-🔍 **Data Analysis Section**
+**Data Analysis Section**
 * View and clean datasets with functionalities such as:
     * Removing null values
     * Filtering columns
@@ -28,7 +28,7 @@ YourAnalyst is a powerful and interactive data analysis web application built us
     * Descriptive statistics (sum, mean, count, etc.).
     * And Much More
 
-📊 **Dashboard Section**
+**Dashboard Section**
 * Generate interactive visualizations using Plotly:
     * Bar Chart
     * Area Chart
@@ -37,7 +37,7 @@ YourAnalyst is a powerful and interactive data analysis web application built us
 * Select data columns dynamically for visualization.
 * Choose the number of rows to display in charts.
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 Clone the repository:
 
@@ -45,7 +45,7 @@ Clone the repository:
 git clone https://github.com/your-username/youranalyst.git
 ```
 
-📦 Install dependencies:
+Install dependencies:
 ```
 pip install -r requirements.txt
 ```
